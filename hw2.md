@@ -113,7 +113,7 @@ What is the value of the `max_depth` parameter:
     2023/05/31 22:27:38 WARNING mlflow.utils.autologging_utils: MLflow autologging encountered a warning: "/home/ahairshi/anaconda3/lib/python3.10/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils."
 
 
-![image.png](attachment:f9669248-a97b-498b-aba7-d6a223b83c52.png)
+<img width="947" alt="image" src="https://github.com/ahairshi/mlops-zoomcamp-2023/assets/1314201/4bcb71b5-7716-4f8a-9b12-d1d50a6bf3dd">
 
 ## Launch the tracking server locally for MLflow
 
