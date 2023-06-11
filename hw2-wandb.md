@@ -82,9 +82,29 @@ Once you navigate to the `Files` tab of your artifact on your Weights & Biases p
 * 54 MB
 * 154 MB
 
-**Answer**
+```python
+! python preprocess_data.py \
+  --wandb_project "mlops-zoomcamp-wandb-homework" \
+  --wandb_entity "daisyfuentesahamed" \
+  --raw_data_path "./data" \
+  --dest_path ./output
+```
 
-`154 kB`
+    [34m[1mwandb[0m: Currently logged in as: [33mdaisyfuentesahamed[0m. Use [1m`wandb login --relogin`[0m to force relogin
+    [34m[1mwandb[0m: Tracking run with wandb version 0.15.4
+    [34m[1mwandb[0m: Run data is saved locally in [35m[1m/home/ahairshi/mlops-zoomcamp-wandb/wandb/run-20230611_021658-7ukmi2o5[0m
+    [34m[1mwandb[0m: Run [1m`wandb offline`[0m to turn off syncing.
+    [34m[1mwandb[0m: Syncing run [33mradiant-hill-1[0m
+    [34m[1mwandb[0m: ⭐️ View project at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework[0m
+    [34m[1mwandb[0m: 🚀 View run at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/7ukmi2o5[0m
+    [34m[1mwandb[0m: Adding directory to artifact (./output)... Done. 0.0s
+    [34m[1mwandb[0m: Waiting for W&B process to finish... [32m(success).[0m
+    [34m[1mwandb[0m: 🚀 View run [33mradiant-hill-1[0m at: [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/7ukmi2o5[0m
+    [34m[1mwandb[0m: Synced 6 W&B file(s), 0 media file(s), 6 artifact file(s) and 0 other file(s)
+    [34m[1mwandb[0m: Find logs at: [35m[1m./wandb/run-20230611_021658-7ukmi2o5/logs[0m
+    
+<img width="1118" alt="image" src="https://github.com/ahairshi/mlops-zoomcamp-2023/assets/1314201/6c92d3d8-2e94-4a48-b528-397a6f76c29e">
+
 
 # Q3. Train a model with Weights & Biases logging
 
@@ -126,9 +146,35 @@ Once you have successfully ran the script, navigate the `Overview` section of th
 * 8
 * 10
 
-**Answer to Q3**
+```python
+! python train.py \
+  --wandb_project "mlops-zoomcamp-wandb-homework" \
+  --wandb_entity "daisyfuentesahamed" \
+  --data_artifact "daisyfuentesahamed/mlops-zoomcamp-wandb-homework/NYC-Taxi:v0"
+```
 
-`10`
+    [34m[1mwandb[0m: Currently logged in as: [33mdaisyfuentesahamed[0m. Use [1m`wandb login --relogin`[0m to force relogin
+    [34m[1mwandb[0m: Tracking run with wandb version 0.15.4
+    [34m[1mwandb[0m: Run data is saved locally in [35m[1m/home/ahairshi/mlops-zoomcamp-wandb/wandb/run-20230611_022816-yderw39s[0m
+    [34m[1mwandb[0m: Run [1m`wandb offline`[0m to turn off syncing.
+    [34m[1mwandb[0m: Syncing run [33mlemon-leaf-2[0m
+    [34m[1mwandb[0m: ⭐️ View project at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework[0m
+    [34m[1mwandb[0m: 🚀 View run at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/yderw39s[0m
+    [34m[1mwandb[0m:   4 of 4 files downloaded.  
+    [34m[1mwandb[0m: Waiting for W&B process to finish... [32m(success).[0m
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run history:
+    [34m[1mwandb[0m: MSE ▁
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run summary:
+    [34m[1mwandb[0m: MSE 2.45398
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: 🚀 View run [33mlemon-leaf-2[0m at: [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/yderw39s[0m
+    [34m[1mwandb[0m: Synced 6 W&B file(s), 0 media file(s), 3 artifact file(s) and 0 other file(s)
+    [34m[1mwandb[0m: Find logs at: [35m[1m./wandb/run-20230611_022816-yderw39s/logs[0m
+    
+<img width="1330" alt="image" src="https://github.com/ahairshi/mlops-zoomcamp-2023/assets/1314201/2370e791-8356-46af-9a40-164bb7a544b5">
+
 
 # Q4. Tune model hyperparameters
 
@@ -150,9 +196,146 @@ This command will run the sweep for 5 iterations using the **Bayesian Optimizati
 * `min_samples_split`
 * `min_samples_leaf`
 
-**Answer to Q4**
+```python
+! python sweep.py \
+  --wandb_project "mlops-zoomcamp-wandb-homework" \
+  --wandb_entity "daisyfuentesahamed" \
+  --data_artifact "daisyfuentesahamed/mlops-zoomcamp-wandb-homework/NYC-Taxi:v0"
+```
 
-`n_estimators`
+    Create sweep with ID: vglc1gxu
+    Sweep URL: https://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/sweeps/vglc1gxu
+    [34m[1mwandb[0m: Agent Starting Run: ep28xstr with config:
+    [34m[1mwandb[0m: 	max_depth: 19
+    [34m[1mwandb[0m: 	min_samples_leaf: 4
+    [34m[1mwandb[0m: 	min_samples_split: 3
+    [34m[1mwandb[0m: 	n_estimators: 33
+    [34m[1mwandb[0m: Currently logged in as: [33mdaisyfuentesahamed[0m. Use [1m`wandb login --relogin`[0m to force relogin
+    [34m[1mwandb[0m: Tracking run with wandb version 0.15.4
+    [34m[1mwandb[0m: Run data is saved locally in [35m[1m/home/ahairshi/mlops-zoomcamp-wandb/wandb/run-20230611_024255-ep28xstr[0m
+    [34m[1mwandb[0m: Run [1m`wandb offline`[0m to turn off syncing.
+    [34m[1mwandb[0m: Syncing run [33mefficient-sweep-1[0m
+    [34m[1mwandb[0m: ⭐️ View project at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework[0m
+    [34m[1mwandb[0m: 🧹 View sweep at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/sweeps/vglc1gxu[0m
+    [34m[1mwandb[0m: 🚀 View run at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/ep28xstr[0m
+    [34m[1mwandb[0m:   4 of 4 files downloaded.  
+    [34m[1mwandb[0m: Waiting for W&B process to finish... [32m(success).[0m
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run history:
+    [34m[1mwandb[0m: MSE ▁
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run summary:
+    [34m[1mwandb[0m: MSE 2.45075
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: 🚀 View run [33mefficient-sweep-1[0m at: [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/ep28xstr[0m
+    [34m[1mwandb[0m: Synced 6 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)
+    [34m[1mwandb[0m: Find logs at: [35m[1m./wandb/run-20230611_024255-ep28xstr/logs[0m
+    [34m[1mwandb[0m: Sweep Agent: Waiting for job.
+    [34m[1mwandb[0m: Job received.
+    [34m[1mwandb[0m: Agent Starting Run: imz8o6as with config:
+    [34m[1mwandb[0m: 	max_depth: 7
+    [34m[1mwandb[0m: 	min_samples_leaf: 3
+    [34m[1mwandb[0m: 	min_samples_split: 8
+    [34m[1mwandb[0m: 	n_estimators: 31
+    [34m[1mwandb[0m: Tracking run with wandb version 0.15.4
+    [34m[1mwandb[0m: Run data is saved locally in [35m[1m/home/ahairshi/mlops-zoomcamp-wandb/wandb/run-20230611_024346-imz8o6as[0m
+    [34m[1mwandb[0m: Run [1m`wandb offline`[0m to turn off syncing.
+    [34m[1mwandb[0m: Syncing run [33mdainty-sweep-2[0m
+    [34m[1mwandb[0m: ⭐️ View project at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework[0m
+    [34m[1mwandb[0m: 🧹 View sweep at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/sweeps/vglc1gxu[0m
+    [34m[1mwandb[0m: 🚀 View run at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/imz8o6as[0m
+    [34m[1mwandb[0m:   4 of 4 files downloaded.  
+    [34m[1mwandb[0m: Waiting for W&B process to finish... [32m(success).[0m
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run history:
+    [34m[1mwandb[0m: MSE ▁
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run summary:
+    [34m[1mwandb[0m: MSE 2.45483
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: 🚀 View run [33mdainty-sweep-2[0m at: [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/imz8o6as[0m
+    [34m[1mwandb[0m: Synced 6 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)
+    [34m[1mwandb[0m: Find logs at: [35m[1m./wandb/run-20230611_024346-imz8o6as/logs[0m
+    [34m[1mwandb[0m: Agent Starting Run: dy0oqfxk with config:
+    [34m[1mwandb[0m: 	max_depth: 8
+    [34m[1mwandb[0m: 	min_samples_leaf: 2
+    [34m[1mwandb[0m: 	min_samples_split: 7
+    [34m[1mwandb[0m: 	n_estimators: 14
+    [34m[1mwandb[0m: Tracking run with wandb version 0.15.4
+    [34m[1mwandb[0m: Run data is saved locally in [35m[1m/home/ahairshi/mlops-zoomcamp-wandb/wandb/run-20230611_024419-dy0oqfxk[0m
+    [34m[1mwandb[0m: Run [1m`wandb offline`[0m to turn off syncing.
+    [34m[1mwandb[0m: Syncing run [33mtrue-sweep-3[0m
+    [34m[1mwandb[0m: ⭐️ View project at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework[0m
+    [34m[1mwandb[0m: 🧹 View sweep at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/sweeps/vglc1gxu[0m
+    [34m[1mwandb[0m: 🚀 View run at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/dy0oqfxk[0m
+    [34m[1mwandb[0m:   4 of 4 files downloaded.  
+    [34m[1mwandb[0m: Waiting for W&B process to finish... [32m(success).[0m
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run history:
+    [34m[1mwandb[0m: MSE ▁
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run summary:
+    [34m[1mwandb[0m: MSE 2.45658
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: 🚀 View run [33mtrue-sweep-3[0m at: [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/dy0oqfxk[0m
+    [34m[1mwandb[0m: Synced 6 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)
+    [34m[1mwandb[0m: Find logs at: [35m[1m./wandb/run-20230611_024419-dy0oqfxk/logs[0m
+    [34m[1mwandb[0m: Agent Starting Run: 085dksdg with config:
+    [34m[1mwandb[0m: 	max_depth: 20
+    [34m[1mwandb[0m: 	min_samples_leaf: 4
+    [34m[1mwandb[0m: 	min_samples_split: 2
+    [34m[1mwandb[0m: 	n_estimators: 34
+    [34m[1mwandb[0m: Tracking run with wandb version 0.15.4
+    [34m[1mwandb[0m: Run data is saved locally in [35m[1m/home/ahairshi/mlops-zoomcamp-wandb/wandb/run-20230611_024451-085dksdg[0m
+    [34m[1mwandb[0m: Run [1m`wandb offline`[0m to turn off syncing.
+    [34m[1mwandb[0m: Syncing run [33mapricot-sweep-4[0m
+    [34m[1mwandb[0m: ⭐️ View project at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework[0m
+    [34m[1mwandb[0m: 🧹 View sweep at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/sweeps/vglc1gxu[0m
+    [34m[1mwandb[0m: 🚀 View run at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/085dksdg[0m
+    [34m[1mwandb[0m:   4 of 4 files downloaded.  
+    [34m[1mwandb[0m: Waiting for W&B process to finish... [32m(success).[0m
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run history:
+    [34m[1mwandb[0m: MSE ▁
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run summary:
+    [34m[1mwandb[0m: MSE 2.4508
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: 🚀 View run [33mapricot-sweep-4[0m at: [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/085dksdg[0m
+    [34m[1mwandb[0m: Synced 6 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)
+    [34m[1mwandb[0m: Find logs at: [35m[1m./wandb/run-20230611_024451-085dksdg/logs[0m
+    [34m[1mwandb[0m: Sweep Agent: Waiting for job.
+    [34m[1mwandb[0m: Job received.
+    [34m[1mwandb[0m: Agent Starting Run: f5yl29ty with config:
+    [34m[1mwandb[0m: 	max_depth: 19
+    [34m[1mwandb[0m: 	min_samples_leaf: 4
+    [34m[1mwandb[0m: 	min_samples_split: 4
+    [34m[1mwandb[0m: 	n_estimators: 46
+    [34m[1mwandb[0m: Tracking run with wandb version 0.15.4
+    [34m[1mwandb[0m: Run data is saved locally in [35m[1m/home/ahairshi/mlops-zoomcamp-wandb/wandb/run-20230611_024550-f5yl29ty[0m
+    [34m[1mwandb[0m: Run [1m`wandb offline`[0m to turn off syncing.
+    [34m[1mwandb[0m: Syncing run [33mtough-sweep-5[0m
+    [34m[1mwandb[0m: ⭐️ View project at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework[0m
+    [34m[1mwandb[0m: 🧹 View sweep at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/sweeps/vglc1gxu[0m
+    [34m[1mwandb[0m: 🚀 View run at [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/f5yl29ty[0m
+    [34m[1mwandb[0m:   4 of 4 files downloaded.  
+    [34m[1mwandb[0m: Waiting for W&B process to finish... [32m(success).[0m
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run history:
+    [34m[1mwandb[0m: MSE ▁
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: Run summary:
+    [34m[1mwandb[0m: MSE 2.44983
+    [34m[1mwandb[0m: 
+    [34m[1mwandb[0m: 🚀 View run [33mtough-sweep-5[0m at: [34m[4mhttps://wandb.ai/daisyfuentesahamed/mlops-zoomcamp-wandb-homework/runs/f5yl29ty[0m
+    [34m[1mwandb[0m: Synced 6 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)
+    [34m[1mwandb[0m: Find logs at: [35m[1m./wandb/run-20230611_024550-f5yl29ty/logs[0m
+
+
+
+```python
+
+```
 
 # Q5. Link the best model to the model registry
 
